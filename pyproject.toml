@@ -10,6 +10,9 @@ packages = [{include = "app", from = "src"}]
 python = "^3.11"
 fastapi = "0.115.6"
 uvicorn = "0.34.0"
+langchain = "0.3.12"
+langchain-openai = "0.2.12"
+langgraph = "0.2.59"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "0.8.3"
