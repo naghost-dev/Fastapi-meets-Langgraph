@@ -34,7 +34,7 @@ def invoke(prompt: str, workflow: Annotated[CompiledStateGraph, Depends(get_work
 
 
 @router.post("/invoke/{thread_id}", tags=["agents"])
-def invoke(prompt: str, thread_id: str, workflow: Annotated[CompiledStateGraph, Depends(get_workflow)]) -> InvokeResponseModel:
+def continue_invoke(prompt: str, thread_id: str, workflow: Annotated[CompiledStateGraph, Depends(get_workflow)]) -> InvokeResponseModel:
     config = get_config(thread_id)
     response = workflow.invoke({"messages": [{"role": "user", "content": prompt}]}, config, stream_mode="updates")
     return InvokeResponseModel(response=response, configuration=config)
