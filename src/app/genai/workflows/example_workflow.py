@@ -1,15 +1,12 @@
-from langchain_core.messages import ToolMessage, SystemMessage, AIMessage, HumanMessage
-from langchain_openai import ChatOpenAI
-from langgraph.checkpoint.memory import MemorySaver
+from langchain_core.messages import ToolMessage, AIMessage, HumanMessage
 from langgraph.constants import END
 from langgraph.graph import StateGraph, START
 from langgraph.graph.message import add_messages
-from typing import Annotated, List
+from typing import Annotated
 
-from pydantic import BaseModel
 from typing_extensions import TypedDict
 
-from app.agents import info_chain, prompt_gen_chain
+from app.genai.agents import info_chain, prompt_gen_chain
 
 
 class State(TypedDict):
@@ -23,7 +20,6 @@ def get_state(state):
     elif not isinstance(messages[-1], HumanMessage):
         return END
     return "info"
-
 
 
 workflow = StateGraph(State)

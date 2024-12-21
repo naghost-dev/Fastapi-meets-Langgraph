@@ -1,6 +1,6 @@
 .PHONY: run
 run:
-	uvicorn src.app:app  --port 18080 --reload
+	uvicorn src.app.main:app  --port 18080 --reload
 
 .PHONY: install
 install:

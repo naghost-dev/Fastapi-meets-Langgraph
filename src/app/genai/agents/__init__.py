@@ -4,7 +4,7 @@ from langchain_core.messages import SystemMessage, AIMessage, ToolMessage
 from langchain_openai import ChatOpenAI
 from pydantic import BaseModel
 
-from app.prompts import prompt_system, template
+from app.genai.prompts import prompt_system, template
 
 
 class PromptInstructions(BaseModel):
